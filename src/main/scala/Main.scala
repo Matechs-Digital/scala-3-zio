@@ -1,57 +1,41 @@
-//
-// USAGE
-//
+sealed trait IO[R, E, A]
 
-trait Console {
-  def putStrLn(msg: => String): IO[Any, Nothing, Unit]
+object IO {
+  def of[R, E, A](): IO[R, E, A] = ???
 }
 
-object Console {
-  implicit val tag: Tag[Console] = Tag()
+extension [R, E, A](x: IO[R, E, A])
+  def map[B](f: A => B): IO[R, E, B] = ???
+  def flatMap[R2, E2, B](f: A => IO[R2, E2, B]): IO[R & R2, E | E2, B] = ???
 
-  def putStrLn(msg: => String) = IO use ((T: Console) => T putStrLn msg)
-}
+case class EnvA()
+case class ErrA()
 
-trait Math {
-  def add(x: Int, y: Int): IO[Any, Nothing, Int]
-}
+case class EnvB()
+case class ErrB()
 
-object Math {
-  implicit val tag: Tag[Math] = Tag()
+val a: IO[EnvA, ErrA, Int] = ???
+val f: Int => IO[EnvB, ErrB, Int] = ???
 
-  def add(x: Int, y: Int) = IO use ((T: Math) => T add(x, y))
-}
+// ErrB shows twice
+// IO[EnvA & EnvB, ErrA | ErrB | ErrB, Int] 
+val b = IO.of[EnvA, ErrA, Int]()
+  .flatMap(x => IO.of[EnvB, ErrB, Int]())
+  .flatMap(x => IO.of[EnvB, ErrB, Int]())
 
-case class ErrorA(a: String)
-case class ErrorB(b: String)
+// OK
+// IO[EnvA & EnvB, ErrA | ErrB, Int]
+val c = for {
+  x <- a
+  y <- f(x)
+  z <- f(y)
+} yield z
 
-val program = for {
-  _ <- Console putStrLn "hello"
-  _ <- Console putStrLn "world"
-  y <- Math add(2, 3)
-  _ <- Console putStrLn s"result: $y"
-  _ <- IO fail ErrorA("a")
-  _ <- IO fail ErrorB("b")
-} yield ()
-
-val main = program
-  .catchSome(e => e match {
-    case x: ErrorA => (x, Console putStrLn "recovered from A")
-  })
-  .inject(new Console {
-    def putStrLn(msg: => String) = IO.succeed(println(msg))
-  })
-  .inject(new Math {
-    def add(x: Int, y: Int) = IO.succeed(x + y)
-  })
-
-@main def root() = {
-  main.unsafeRun match {
-    case Exit.Fail(e) => {
-      println("Error:")
-      println(e)
-      ()
-    }
-    case Exit.Succeed(a) => ()
-  }
-}
+// VSCODE See this as IO[EnvA & EnvB, ErrA | (ErrB | (ErrB | E2)), Int]
+// sbt console raise an error
+val d = for {
+  x <- a
+  y <- f(x)
+  z <- f(y)
+  _ <- IO.of[Any, Nothing, Unit]()
+} yield z

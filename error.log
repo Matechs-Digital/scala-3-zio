@@ -1,0 +1,554 @@
+[info] welcome to sbt 1.5.3 (Private Build Java 1.8.0_275)
+[info] loading settings for project crazy-build-build-build from metals.sbt ...
+[info] loading project definition from /home/ma/os/crazy/crazy/project/project/project
+[info] loading settings for project crazy-build-build from metals.sbt ...
+[info] loading project definition from /home/ma/os/crazy/crazy/project/project
+[success] Generated .bloop/crazy-build-build.json
+[success] Total time: 0 s, completed Jun 22, 2021 12:03:12 PM
+[info] loading settings for project crazy-build from metals.sbt,plugins.sbt ...
+[info] loading project definition from /home/ma/os/crazy/crazy/project
+[success] Generated .bloop/crazy-build.json
+[success] Total time: 0 s, completed Jun 22, 2021 12:03:12 PM
+[info] loading settings for project root from build.sbt ...
+[info] set current project to scala3-simple (in build file:/home/ma/os/crazy/crazy/)
+[info] compiling 1 Scala source to /home/ma/os/crazy/crazy/target/scala-3.0.0/classes ...
+error when pickling type E2
+error when pickling type ErrB | E2
+error when pickling type ErrB | (ErrB | E2)
+error when pickling type ErrA | (ErrB | (ErrB | E2))
+error when pickling type IO[EnvA & EnvB, ErrA | (ErrB | (ErrB | E2)), Int]
+error when pickling tree [35mIO[EnvA & EnvB, ErrA | (ErrB | (ErrB | E2)), Int][0m
+error when pickling tree [33mval[0m [36md[0m: [35mIO[EnvA & EnvB, ErrA | (ErrB | (ErrB | E2)), Int][0m = 
+  flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](a)[[35mEnvB[0m, [35m(ErrB | (ErrB | E2))[0m, [35mInt[0m](
+    {
+      [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB | (ErrB | E2), Int][0m = 
+        flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(x))[[35mEnvB[0m, [35m(ErrB | E2)[0m, [35mInt[0m](
+          {
+            [33mdef[0m [36m$anonfun[0m([36my[0m: [35mInt[0m): [35mIO[EnvB, ErrB | Nothing, Int][0m = 
+              flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(y))[[35mAny[0m, [35mNothing[0m, [35mInt[0m](
+                {
+                  [33mdef[0m [36m$anonfun[0m([36mz[0m: [35mInt[0m): [35mIO[Any, Nothing, Int][0m = 
+                    map[[35mAny[0m, [35mNothing[0m, [35mUnit[0m](IO.of[[35mAny[0m, [35mNothing[0m, [35mUnit[0m]())[[35mInt[0m](
+                      {
+                        [33mdef[0m [36m$anonfun[0m([36mx$1[0m: [35mUnit[0m): [35mInt[0m = 
+                          x$1:[35m(x$1 : Unit) @unchecked[0m[33m match [0m
+                            {
+                              [33mcase [0m_ => z
+                            }
+                        closure($anonfun)
+                      }
+                    )
+                  closure($anonfun)
+                }
+              )
+            closure($anonfun)
+          }
+        )
+      closure($anonfun)
+    }
+  )
+error when pickling tree ()[33m extends[0m [35mObject[0m() { [33mthis[0m: Main$package.[33mtype[0m =>
+  [33mprivate[0m [33mdef[0m [36mwriteReplace[0m(): [35mAnyRef[0m = 
+    [33mnew [0m[35mscala.runtime.ModuleSerializationProxy[0m(classOf[Main$package.type])
+  [33mextension [0m[[35mR[0m >: [35mNothing[0m <: [35mAny[0m, [35mE[0m >: [35mNothing[0m <: [35mAny[0m, [35mA[0m >: [35mNothing[0m <: [35mAny[0m](
+    [36mx[0m: [35mIO[0m[[35mR[0m, [35mE[0m, [35mA[0m]
+  ) [33mdef[0m [36mmap[0m[[35mB[0m >: [35mNothing[0m <: [35mAny[0m]([36mf[0m: [35mFunction1[0m[[35mA[0m, [35mB[0m]): [35mIO[0m[[35mR[0m, [35mE[0m, [35mB[0m] = ???
+  [33mextension [0m[[35mR[0m >: [35mNothing[0m <: [35mAny[0m, [35mE[0m >: [35mNothing[0m <: [35mAny[0m, [35mA[0m >: [35mNothing[0m <: [35mAny[0m](
+    [36mx[0m: [35mIO[0m[[35mR[0m, [35mE[0m, [35mA[0m]
+  ) [33mdef[0m [36mflatMap[0m[[35mR2[0m >: [35mNothing[0m <: [35mAny[0m, [35mE2[0m >: [35mNothing[0m <: [35mAny[0m, [35mB[0m >: [35mNothing[0m <: [35mAny[0m]
+    (
+  [36mf[0m: [35mFunction1[0m[[35mA[0m, [35mIO[0m[[35mR2[0m, [35mE2[0m, [35mB[0m]]): [35mIO[0m[[35mR[0m & [35mR2[0m, [35mE[0m | [35mE2[0m, [35mB[0m] = ???
+  [33mval[0m [36ma[0m: [35mIO[0m[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m] = ???
+  [33mval[0m [36mf[0m: [35mFunction1[0m[[35mInt[0m, [35mIO[0m[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m]] = ???
+  [33mval[0m [36mb[0m: [35mIO[EnvA & EnvB, ErrA | ErrB | ErrB, Int][0m = 
+    flatMap[[35m(EnvA & EnvB)[0m, [35m(ErrA | ErrB)[0m, [35mInt[0m](
+      flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](IO.of[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m]())[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+        {
+          [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = IO.of[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m]()
+          closure($anonfun)
+        }
+      )
+    )[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+      {
+        [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = IO.of[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m]()
+        closure($anonfun)
+      }
+    )
+  [33mval[0m [36mc[0m: [35mIO[EnvA & EnvB, ErrA | ErrB, Int][0m = 
+    flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](a)[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+      {
+        [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = 
+          flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(x))[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+            {
+              [33mdef[0m [36m$anonfun[0m([36my[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = 
+                map[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(y))[[35mInt[0m](
+                  {
+                    [33mdef[0m [36m$anonfun[0m([36mz[0m: [35mInt[0m): [35mInt[0m = z
+                    closure($anonfun)
+                  }
+                )
+              closure($anonfun)
+            }
+          )
+        closure($anonfun)
+      }
+    )
+  [33mval[0m [36md[0m: [35mIO[EnvA & EnvB, ErrA | (ErrB | (ErrB | E2)), Int][0m = 
+    flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](a)[[35mEnvB[0m, [35m(ErrB | (ErrB | E2))[0m, [35mInt[0m](
+      {
+        [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB | (ErrB | E2), Int][0m = 
+          flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(x))[[35mEnvB[0m, [35m(ErrB | E2)[0m, [35mInt[0m](
+            {
+              [33mdef[0m [36m$anonfun[0m([36my[0m: [35mInt[0m): [35mIO[EnvB, ErrB | Nothing, Int][0m = 
+                flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(y))[[35mAny[0m, [35mNothing[0m, [35mInt[0m](
+                  {
+                    [33mdef[0m [36m$anonfun[0m([36mz[0m: [35mInt[0m): [35mIO[Any, Nothing, Int][0m = 
+                      map[[35mAny[0m, [35mNothing[0m, [35mUnit[0m](IO.of[[35mAny[0m, [35mNothing[0m, [35mUnit[0m]())[[35mInt[0m](
+                        {
+                          [33mdef[0m [36m$anonfun[0m([36mx$1[0m: [35mUnit[0m): [35mInt[0m = 
+                            x$1:[35m(x$1 : Unit) @unchecked[0m[33m match [0m
+                              {
+                                [33mcase [0m_ => z
+                              }
+                          closure($anonfun)
+                        }
+                      )
+                    closure($anonfun)
+                  }
+                )
+              closure($anonfun)
+            }
+          )
+        closure($anonfun)
+      }
+    )
+}
+error when pickling tree @[35mscala.annotation.internal.SourceFile[0m([32m"src/main/scala/Main.scala"[0m) [33mfinal[0m [33mmodule[0m 
+  [33mclass[0m
+ [35mMain$package$[0m()[33m extends[0m [35mObject[0m() { [33mthis[0m: Main$package.[33mtype[0m =>
+  [33mprivate[0m [33mdef[0m [36mwriteReplace[0m(): [35mAnyRef[0m = 
+    [33mnew [0m[35mscala.runtime.ModuleSerializationProxy[0m(classOf[Main$package.type])
+  [33mextension [0m[[35mR[0m >: [35mNothing[0m <: [35mAny[0m, [35mE[0m >: [35mNothing[0m <: [35mAny[0m, [35mA[0m >: [35mNothing[0m <: [35mAny[0m](
+    [36mx[0m: [35mIO[0m[[35mR[0m, [35mE[0m, [35mA[0m]
+  ) [33mdef[0m [36mmap[0m[[35mB[0m >: [35mNothing[0m <: [35mAny[0m]([36mf[0m: [35mFunction1[0m[[35mA[0m, [35mB[0m]): [35mIO[0m[[35mR[0m, [35mE[0m, [35mB[0m] = ???
+  [33mextension [0m[[35mR[0m >: [35mNothing[0m <: [35mAny[0m, [35mE[0m >: [35mNothing[0m <: [35mAny[0m, [35mA[0m >: [35mNothing[0m <: [35mAny[0m](
+    [36mx[0m: [35mIO[0m[[35mR[0m, [35mE[0m, [35mA[0m]
+  ) [33mdef[0m [36mflatMap[0m[[35mR2[0m >: [35mNothing[0m <: [35mAny[0m, [35mE2[0m >: [35mNothing[0m <: [35mAny[0m, [35mB[0m >: [35mNothing[0m <: [35mAny[0m]
+    (
+  [36mf[0m: [35mFunction1[0m[[35mA[0m, [35mIO[0m[[35mR2[0m, [35mE2[0m, [35mB[0m]]): [35mIO[0m[[35mR[0m & [35mR2[0m, [35mE[0m | [35mE2[0m, [35mB[0m] = ???
+  [33mval[0m [36ma[0m: [35mIO[0m[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m] = ???
+  [33mval[0m [36mf[0m: [35mFunction1[0m[[35mInt[0m, [35mIO[0m[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m]] = ???
+  [33mval[0m [36mb[0m: [35mIO[EnvA & EnvB, ErrA | ErrB | ErrB, Int][0m = 
+    flatMap[[35m(EnvA & EnvB)[0m, [35m(ErrA | ErrB)[0m, [35mInt[0m](
+      flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](IO.of[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m]())[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+        {
+          [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = IO.of[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m]()
+          closure($anonfun)
+        }
+      )
+    )[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+      {
+        [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = IO.of[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m]()
+        closure($anonfun)
+      }
+    )
+  [33mval[0m [36mc[0m: [35mIO[EnvA & EnvB, ErrA | ErrB, Int][0m = 
+    flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](a)[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+      {
+        [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = 
+          flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(x))[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+            {
+              [33mdef[0m [36m$anonfun[0m([36my[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = 
+                map[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(y))[[35mInt[0m](
+                  {
+                    [33mdef[0m [36m$anonfun[0m([36mz[0m: [35mInt[0m): [35mInt[0m = z
+                    closure($anonfun)
+                  }
+                )
+              closure($anonfun)
+            }
+          )
+        closure($anonfun)
+      }
+    )
+  [33mval[0m [36md[0m: [35mIO[EnvA & EnvB, ErrA | (ErrB | (ErrB | E2)), Int][0m = 
+    flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](a)[[35mEnvB[0m, [35m(ErrB | (ErrB | E2))[0m, [35mInt[0m](
+      {
+        [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB | (ErrB | E2), Int][0m = 
+          flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(x))[[35mEnvB[0m, [35m(ErrB | E2)[0m, [35mInt[0m](
+            {
+              [33mdef[0m [36m$anonfun[0m([36my[0m: [35mInt[0m): [35mIO[EnvB, ErrB | Nothing, Int][0m = 
+                flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(y))[[35mAny[0m, [35mNothing[0m, [35mInt[0m](
+                  {
+                    [33mdef[0m [36m$anonfun[0m([36mz[0m: [35mInt[0m): [35mIO[Any, Nothing, Int][0m = 
+                      map[[35mAny[0m, [35mNothing[0m, [35mUnit[0m](IO.of[[35mAny[0m, [35mNothing[0m, [35mUnit[0m]())[[35mInt[0m](
+                        {
+                          [33mdef[0m [36m$anonfun[0m([36mx$1[0m: [35mUnit[0m): [35mInt[0m = 
+                            x$1:[35m(x$1 : Unit) @unchecked[0m[33m match [0m
+                              {
+                                [33mcase [0m_ => z
+                              }
+                          closure($anonfun)
+                        }
+                      )
+                    closure($anonfun)
+                  }
+                )
+              closure($anonfun)
+            }
+          )
+        closure($anonfun)
+      }
+    )
+}
+error when pickling tree [33mpackage [0m<empty> {
+  [33mfinal[0m [33mlazy[0m [33mmodule[0m [33mval[0m [36mMain$package[0m: [35mMain$package$[0m = [33mnew [0m[35mMain$package$[0m()
+  @[35mscala.annotation.internal.SourceFile[0m([32m"src/main/scala/Main.scala"[0m) [33mfinal[0m 
+    [33mmodule[0m
+   [33mclass[0m [35mMain$package$[0m()[33m extends[0m [35mObject[0m() { [33mthis[0m: Main$package.[33mtype[0m =>
+    [33mprivate[0m [33mdef[0m [36mwriteReplace[0m(): [35mAnyRef[0m = 
+      [33mnew [0m[35mscala.runtime.ModuleSerializationProxy[0m(classOf[Main$package.type])
+    [33mextension [0m[[35mR[0m >: [35mNothing[0m <: [35mAny[0m, [35mE[0m >: [35mNothing[0m <: [35mAny[0m, [35mA[0m >: [35mNothing[0m <: [35mAny[0m](
+      [36mx[0m: [35mIO[0m[[35mR[0m, [35mE[0m, [35mA[0m]
+    ) [33mdef[0m [36mmap[0m[[35mB[0m >: [35mNothing[0m <: [35mAny[0m]([36mf[0m: [35mFunction1[0m[[35mA[0m, [35mB[0m]): [35mIO[0m[[35mR[0m, [35mE[0m, [35mB[0m] = ???
+    [33mextension [0m[[35mR[0m >: [35mNothing[0m <: [35mAny[0m, [35mE[0m >: [35mNothing[0m <: [35mAny[0m, [35mA[0m >: [35mNothing[0m <: [35mAny[0m](
+      [36mx[0m: [35mIO[0m[[35mR[0m, [35mE[0m, [35mA[0m]
+    ) [33mdef[0m [36mflatMap[0m[[35mR2[0m >: [35mNothing[0m <: [35mAny[0m, [35mE2[0m >: [35mNothing[0m <: [35mAny[0m, 
+      [35mB[0m >: [35mNothing[0m <: [35mAny[0m
+    ]([36mf[0m: [35mFunction1[0m[[35mA[0m, [35mIO[0m[[35mR2[0m, [35mE2[0m, [35mB[0m]]): [35mIO[0m[[35mR[0m & [35mR2[0m, [35mE[0m | [35mE2[0m, [35mB[0m] = ???
+    [33mval[0m [36ma[0m: [35mIO[0m[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m] = ???
+    [33mval[0m [36mf[0m: [35mFunction1[0m[[35mInt[0m, [35mIO[0m[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m]] = ???
+    [33mval[0m [36mb[0m: [35mIO[EnvA & EnvB, ErrA | ErrB | ErrB, Int][0m = 
+      flatMap[[35m(EnvA & EnvB)[0m, [35m(ErrA | ErrB)[0m, [35mInt[0m](
+        flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](IO.of[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m]())[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+          {
+            [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = IO.of[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m]()
+            closure($anonfun)
+          }
+        )
+      )[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+        {
+          [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = IO.of[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m]()
+          closure($anonfun)
+        }
+      )
+    [33mval[0m [36mc[0m: [35mIO[EnvA & EnvB, ErrA | ErrB, Int][0m = 
+      flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](a)[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+        {
+          [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = 
+            flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(x))[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](
+              {
+                [33mdef[0m [36m$anonfun[0m([36my[0m: [35mInt[0m): [35mIO[EnvB, ErrB, Int][0m = 
+                  map[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(y))[[35mInt[0m](
+                    {
+                      [33mdef[0m [36m$anonfun[0m([36mz[0m: [35mInt[0m): [35mInt[0m = z
+                      closure($anonfun)
+                    }
+                  )
+                closure($anonfun)
+              }
+            )
+          closure($anonfun)
+        }
+      )
+    [33mval[0m [36md[0m: [35mIO[EnvA & EnvB, ErrA | (ErrB | (ErrB | E2)), Int][0m = 
+      flatMap[[35mEnvA[0m, [35mErrA[0m, [35mInt[0m](a)[[35mEnvB[0m, [35m(ErrB | (ErrB | E2))[0m, [35mInt[0m](
+        {
+          [33mdef[0m [36m$anonfun[0m([36mx[0m: [35mInt[0m): [35mIO[EnvB, ErrB | (ErrB | E2), Int][0m = 
+            flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(x))[[35mEnvB[0m, [35m(ErrB | E2)[0m, [35mInt[0m](
+              {
+                [33mdef[0m [36m$anonfun[0m([36my[0m: [35mInt[0m): [35mIO[EnvB, ErrB | Nothing, Int][0m = 
+                  flatMap[[35mEnvB[0m, [35mErrB[0m, [35mInt[0m](f.apply(y))[[35mAny[0m, [35mNothing[0m, [35mInt[0m](
+                    {
+                      [33mdef[0m [36m$anonfun[0m([36mz[0m: [35mInt[0m): [35mIO[Any, Nothing, Int][0m = 
+                        map[[35mAny[0m, [35mNothing[0m, [35mUnit[0m](IO.of[[35mAny[0m, [35mNothing[0m, [35mUnit[0m]())[[35mInt[0m
+                          ]
+                        (
+                          {
+                            [33mdef[0m [36m$anonfun[0m([36mx$1[0m: [35mUnit[0m): [35mInt[0m = 
+                              x$1:[35m(x$1 : Unit) @unchecked[0m[33m match [0m
+                                {
+                                  [33mcase [0m_ => z
+                                }
+                            closure($anonfun)
+                          }
+                        )
+                      closure($anonfun)
+                    }
+                  )
+                closure($anonfun)
+              }
+            )
+          closure($anonfun)
+        }
+      )
+  }
+}
+[info] exception occurred while compiling /home/ma/os/crazy/crazy/src/main/scala/Main.scala
+java.lang.AssertionError: assertion failed: orphan parameter reference: TypeParamRef(E2) while compiling /home/ma/os/crazy/crazy/src/main/scala/Main.scala
+[error] ## Exception when compiling 1 sources to /home/ma/os/crazy/crazy/target/scala-3.0.0/classes
+[error] java.lang.AssertionError: assertion failed: orphan parameter reference: TypeParamRef(E2)
+[error] scala.runtime.Scala3RunTime$.assertFailed(Scala3RunTime.scala:8)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:300)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$8(TreePickler.scala:278)
+[error] dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:278)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$8(TreePickler.scala:278)
+[error] dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:278)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$8(TreePickler.scala:278)
+[error] dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:278)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$11$$anonfun$1(TreePickler.scala:192)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] scala.collection.immutable.List.foreach(List.scala:333)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$2(TreePickler.scala:192)
+[error] dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:192)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:615)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleTpt(TreePickler.scala:327)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleDef$$anonfun$1(TreePickler.scala:343)
+[error] dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleDef(TreePickler.scala:347)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:556)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleStats$$anonfun$2(TreePickler.scala:371)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] scala.collection.immutable.List.foreach(List.scala:333)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleStats(TreePickler.scala:371)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleTree$$anonfun$26(TreePickler.scala:597)
+[error] dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:598)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleDef$$anonfun$1(TreePickler.scala:342)
+[error] dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleDef(TreePickler.scala:347)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:573)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleStats$$anonfun$2(TreePickler.scala:371)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] scala.collection.immutable.List.foreach(List.scala:333)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleStats(TreePickler.scala:371)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleTree$$anonfun$29(TreePickler.scala:613)
+[error] dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:613)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickle$$anonfun$1(TreePickler.scala:784)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] scala.collection.immutable.List.foreach(List.scala:333)
+[error] dotty.tools.dotc.core.tasty.TreePickler.pickle(TreePickler.scala:784)
+[error] dotty.tools.dotc.transform.Pickler.run$$anonfun$3$$anonfun$2(Pickler.scala:69)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] scala.collection.immutable.List.foreach(List.scala:333)
+[error] dotty.tools.dotc.transform.Pickler.run$$anonfun$1(Pickler.scala:106)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] scala.collection.immutable.List.foreach(List.scala:333)
+[error] dotty.tools.dotc.transform.Pickler.run(Pickler.scala:106)
+[error] dotty.tools.dotc.core.Phases$Phase.runOn$$anonfun$1(Phases.scala:303)
+[error] scala.collection.immutable.List.map(List.scala:246)
+[error] dotty.tools.dotc.core.Phases$Phase.runOn(Phases.scala:304)
+[error] dotty.tools.dotc.transform.Pickler.runOn(Pickler.scala:111)
+[error] dotty.tools.dotc.Run.runPhases$4$$anonfun$4(Run.scala:205)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1323)
+[error] dotty.tools.dotc.Run.runPhases$5(Run.scala:215)
+[error] dotty.tools.dotc.Run.compileUnits$$anonfun$1(Run.scala:223)
+[error] scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[error] dotty.tools.dotc.util.Stats$.maybeMonitored(Stats.scala:67)
+[error] dotty.tools.dotc.Run.compileUnits(Run.scala:230)
+[error] dotty.tools.dotc.Run.compileSources(Run.scala:166)
+[error] dotty.tools.dotc.Run.compile(Run.scala:150)
+[error] dotty.tools.dotc.Driver.doCompile(Driver.scala:39)
+[error] dotty.tools.xsbt.CompilerBridgeDriver.run(CompilerBridgeDriver.java:88)
+[error] dotty.tools.xsbt.CompilerBridge.run(CompilerBridge.java:22)
+[error] sbt.internal.inc.AnalyzingCompiler.compile(AnalyzingCompiler.scala:91)
+[error] sbt.internal.inc.MixedAnalyzingCompiler.$anonfun$compile$7(MixedAnalyzingCompiler.scala:186)
+[error] scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[error] sbt.internal.inc.MixedAnalyzingCompiler.timed(MixedAnalyzingCompiler.scala:241)
+[error] sbt.internal.inc.MixedAnalyzingCompiler.$anonfun$compile$4(MixedAnalyzingCompiler.scala:176)
+[error] sbt.internal.inc.MixedAnalyzingCompiler.$anonfun$compile$4$adapted(MixedAnalyzingCompiler.scala:157)
+[error] sbt.internal.inc.JarUtils$.withPreviousJar(JarUtils.scala:239)
+[error] sbt.internal.inc.MixedAnalyzingCompiler.compileScala$1(MixedAnalyzingCompiler.scala:157)
+[error] sbt.internal.inc.MixedAnalyzingCompiler.compile(MixedAnalyzingCompiler.scala:204)
+[error] sbt.internal.inc.IncrementalCompilerImpl.$anonfun$compileInternal$1(IncrementalCompilerImpl.scala:528)
+[error] sbt.internal.inc.IncrementalCompilerImpl.$anonfun$compileInternal$1$adapted(IncrementalCompilerImpl.scala:528)
+[error] sbt.internal.inc.Incremental$.$anonfun$apply$5(Incremental.scala:174)
+[error] sbt.internal.inc.Incremental$.$anonfun$apply$5$adapted(Incremental.scala:172)
+[error] sbt.internal.inc.Incremental$$anon$2.run(Incremental.scala:457)
+[error] sbt.internal.inc.IncrementalCommon$CycleState.next(IncrementalCommon.scala:116)
+[error] sbt.internal.inc.IncrementalCommon$$anon$1.next(IncrementalCommon.scala:56)
+[error] sbt.internal.inc.IncrementalCommon$$anon$1.next(IncrementalCommon.scala:52)
+[error] sbt.internal.inc.IncrementalCommon.cycle(IncrementalCommon.scala:261)
+[error] sbt.internal.inc.Incremental$.$anonfun$incrementalCompile$8(Incremental.scala:412)
+[error] sbt.internal.inc.Incremental$.withClassfileManager(Incremental.scala:499)
+[error] sbt.internal.inc.Incremental$.incrementalCompile(Incremental.scala:399)
+[error] sbt.internal.inc.Incremental$.apply(Incremental.scala:166)
+[error] sbt.internal.inc.IncrementalCompilerImpl.compileInternal(IncrementalCompilerImpl.scala:528)
+[error] sbt.internal.inc.IncrementalCompilerImpl.$anonfun$compileIncrementally$1(IncrementalCompilerImpl.scala:482)
+[error] sbt.internal.inc.IncrementalCompilerImpl.handleCompilationError(IncrementalCompilerImpl.scala:332)
+[error] sbt.internal.inc.IncrementalCompilerImpl.compileIncrementally(IncrementalCompilerImpl.scala:420)
+[error] sbt.internal.inc.IncrementalCompilerImpl.compile(IncrementalCompilerImpl.scala:137)
+[error] sbt.Defaults$.compileIncrementalTaskImpl(Defaults.scala:2362)
+[error] sbt.Defaults$.$anonfun$compileIncrementalTask$2(Defaults.scala:2319)
+[error] sbt.internal.io.Retry$.apply(Retry.scala:46)
+[error] sbt.internal.io.Retry$.apply(Retry.scala:28)
+[error] sbt.internal.io.Retry$.apply(Retry.scala:23)
+[error] sbt.internal.server.BspCompileTask$.compute(BspCompileTask.scala:31)
+[error] sbt.Defaults$.$anonfun$compileIncrementalTask$1(Defaults.scala:2315)
+[error] scala.Function1.$anonfun$compose$1(Function1.scala:49)
+[error] sbt.internal.util.$tilde$greater.$anonfun$$u2219$1(TypeFunctions.scala:62)
+[error] sbt.std.Transform$$anon$4.work(Transform.scala:68)
+[error] sbt.Execute.$anonfun$submit$2(Execute.scala:282)
+[error] sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:23)
+[error] sbt.Execute.work(Execute.scala:291)
+[error] sbt.Execute.$anonfun$submit$1(Execute.scala:282)
+[error] sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:265)
+[error] sbt.CompletionService$$anon$2.call(CompletionService.scala:64)
+[error] java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[error] java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+[error] java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[error] java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+[error] java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+[error] java.lang.Thread.run(Thread.java:748)
+[error]            
+[error] java.lang.AssertionError: assertion failed: orphan parameter reference: TypeParamRef(E2)
+[error] 	at scala.runtime.Scala3RunTime$.assertFailed(Scala3RunTime.scala:8)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:300)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$8(TreePickler.scala:278)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:278)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$8(TreePickler.scala:278)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:278)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$8(TreePickler.scala:278)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:278)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$11$$anonfun$1(TreePickler.scala:192)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:333)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType$$anonfun$2(TreePickler.scala:192)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleNewType(TreePickler.scala:192)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleType(TreePickler.scala:171)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:615)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleTpt(TreePickler.scala:327)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleDef$$anonfun$1(TreePickler.scala:343)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleDef(TreePickler.scala:347)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:556)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleStats$$anonfun$2(TreePickler.scala:371)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:333)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleStats(TreePickler.scala:371)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleTree$$anonfun$26(TreePickler.scala:597)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:598)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleDef$$anonfun$1(TreePickler.scala:342)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleDef(TreePickler.scala:347)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:573)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleStats$$anonfun$2(TreePickler.scala:371)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:333)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleStats(TreePickler.scala:371)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleTree$$anonfun$29(TreePickler.scala:613)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.withLength(TreePickler.scala:69)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickleTree(TreePickler.scala:613)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickle$$anonfun$1(TreePickler.scala:784)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:333)
+[error] 	at dotty.tools.dotc.core.tasty.TreePickler.pickle(TreePickler.scala:784)
+[error] 	at dotty.tools.dotc.transform.Pickler.run$$anonfun$3$$anonfun$2(Pickler.scala:69)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:333)
+[error] 	at dotty.tools.dotc.transform.Pickler.run$$anonfun$1(Pickler.scala:106)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:333)
+[error] 	at dotty.tools.dotc.transform.Pickler.run(Pickler.scala:106)
+[error] 	at dotty.tools.dotc.core.Phases$Phase.runOn$$anonfun$1(Phases.scala:303)
+[error] 	at scala.collection.immutable.List.map(List.scala:246)
+[error] 	at dotty.tools.dotc.core.Phases$Phase.runOn(Phases.scala:304)
+[error] 	at dotty.tools.dotc.transform.Pickler.runOn(Pickler.scala:111)
+[error] 	at dotty.tools.dotc.Run.runPhases$4$$anonfun$4(Run.scala:205)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+[error] 	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+[error] 	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1323)
+[error] 	at dotty.tools.dotc.Run.runPhases$5(Run.scala:215)
+[error] 	at dotty.tools.dotc.Run.compileUnits$$anonfun$1(Run.scala:223)
+[error] 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[error] 	at dotty.tools.dotc.util.Stats$.maybeMonitored(Stats.scala:67)
+[error] 	at dotty.tools.dotc.Run.compileUnits(Run.scala:230)
+[error] 	at dotty.tools.dotc.Run.compileSources(Run.scala:166)
+[error] 	at dotty.tools.dotc.Run.compile(Run.scala:150)
+[error] 	at dotty.tools.dotc.Driver.doCompile(Driver.scala:39)
+[error] 	at dotty.tools.xsbt.CompilerBridgeDriver.run(CompilerBridgeDriver.java:88)
+[error] 	at dotty.tools.xsbt.CompilerBridge.run(CompilerBridge.java:22)
+[error] 	at sbt.internal.inc.AnalyzingCompiler.compile(AnalyzingCompiler.scala:91)
+[error] 	at sbt.internal.inc.MixedAnalyzingCompiler.$anonfun$compile$7(MixedAnalyzingCompiler.scala:186)
+[error] 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[error] 	at sbt.internal.inc.MixedAnalyzingCompiler.timed(MixedAnalyzingCompiler.scala:241)
+[error] 	at sbt.internal.inc.MixedAnalyzingCompiler.$anonfun$compile$4(MixedAnalyzingCompiler.scala:176)
+[error] 	at sbt.internal.inc.MixedAnalyzingCompiler.$anonfun$compile$4$adapted(MixedAnalyzingCompiler.scala:157)
+[error] 	at sbt.internal.inc.JarUtils$.withPreviousJar(JarUtils.scala:239)
+[error] 	at sbt.internal.inc.MixedAnalyzingCompiler.compileScala$1(MixedAnalyzingCompiler.scala:157)
+[error] 	at sbt.internal.inc.MixedAnalyzingCompiler.compile(MixedAnalyzingCompiler.scala:204)
+[error] 	at sbt.internal.inc.IncrementalCompilerImpl.$anonfun$compileInternal$1(IncrementalCompilerImpl.scala:528)
+[error] 	at sbt.internal.inc.IncrementalCompilerImpl.$anonfun$compileInternal$1$adapted(IncrementalCompilerImpl.scala:528)
+[error] 	at sbt.internal.inc.Incremental$.$anonfun$apply$5(Incremental.scala:174)
+[error] 	at sbt.internal.inc.Incremental$.$anonfun$apply$5$adapted(Incremental.scala:172)
+[error] 	at sbt.internal.inc.Incremental$$anon$2.run(Incremental.scala:457)
+[error] 	at sbt.internal.inc.IncrementalCommon$CycleState.next(IncrementalCommon.scala:116)
+[error] 	at sbt.internal.inc.IncrementalCommon$$anon$1.next(IncrementalCommon.scala:56)
+[error] 	at sbt.internal.inc.IncrementalCommon$$anon$1.next(IncrementalCommon.scala:52)
+[error] 	at sbt.internal.inc.IncrementalCommon.cycle(IncrementalCommon.scala:261)
+[error] 	at sbt.internal.inc.Incremental$.$anonfun$incrementalCompile$8(Incremental.scala:412)
+[error] 	at sbt.internal.inc.Incremental$.withClassfileManager(Incremental.scala:499)
+[error] 	at sbt.internal.inc.Incremental$.incrementalCompile(Incremental.scala:399)
+[error] 	at sbt.internal.inc.Incremental$.apply(Incremental.scala:166)
+[error] 	at sbt.internal.inc.IncrementalCompilerImpl.compileInternal(IncrementalCompilerImpl.scala:528)
+[error] 	at sbt.internal.inc.IncrementalCompilerImpl.$anonfun$compileIncrementally$1(IncrementalCompilerImpl.scala:482)
+[error] 	at sbt.internal.inc.IncrementalCompilerImpl.handleCompilationError(IncrementalCompilerImpl.scala:332)
+[error] 	at sbt.internal.inc.IncrementalCompilerImpl.compileIncrementally(IncrementalCompilerImpl.scala:420)
+[error] 	at sbt.internal.inc.IncrementalCompilerImpl.compile(IncrementalCompilerImpl.scala:137)
+[error] 	at sbt.Defaults$.compileIncrementalTaskImpl(Defaults.scala:2362)
+[error] 	at sbt.Defaults$.$anonfun$compileIncrementalTask$2(Defaults.scala:2319)
+[error] 	at sbt.internal.io.Retry$.apply(Retry.scala:46)
+[error] 	at sbt.internal.io.Retry$.apply(Retry.scala:28)
+[error] 	at sbt.internal.io.Retry$.apply(Retry.scala:23)
+[error] 	at sbt.internal.server.BspCompileTask$.compute(BspCompileTask.scala:31)
+[error] 	at sbt.Defaults$.$anonfun$compileIncrementalTask$1(Defaults.scala:2315)
+[error] 	at scala.Function1.$anonfun$compose$1(Function1.scala:49)
+[error] 	at sbt.internal.util.$tilde$greater.$anonfun$$u2219$1(TypeFunctions.scala:62)
+[error] 	at sbt.std.Transform$$anon$4.work(Transform.scala:68)
+[error] 	at sbt.Execute.$anonfun$submit$2(Execute.scala:282)
+[error] 	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:23)
+[error] 	at sbt.Execute.work(Execute.scala:291)
+[error] 	at sbt.Execute.$anonfun$submit$1(Execute.scala:282)
+[error] 	at sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:265)
+[error] 	at sbt.CompletionService$$anon$2.call(CompletionService.scala:64)
+[error] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[error] 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+[error] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[error] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+[error] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+[error] 	at java.lang.Thread.run(Thread.java:748)
+[error] (Compile / compileIncremental) java.lang.AssertionError: assertion failed: orphan parameter reference: TypeParamRef(E2)
+[error] Total time: 3 s, completed Jun 22, 2021 12:03:16 PM
