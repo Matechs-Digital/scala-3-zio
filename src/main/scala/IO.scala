@@ -1,21 +1,20 @@
 enum IO[-R, E, +A]:
   def map[B](f: A => B): IO[R, E, B] = this.flatMap(a => IO.succeed(f(a)))
 
-  def flatMap[R2, E2, B](f: A => IO[R2, E2, B])(implicit ev: E => E | E2): IO[R2 & R, E | E2, B] = IO.FlatMap(this, f)
+  def flatMap[R2, E2, B](f: A => IO[R2, E2, B])(using ev: E => E | E2): IO[R2 & R, E | E2, B] = IO.FlatMap(this, f)
 
   def foldM[R2, E2, A2, R3, E3, A3](f: A => IO[R2, E2, A2], g: E => IO[R3, E3, A3]): IO[R3 & R2 & R, E3 | E2, A3 | A2] = IO.Fold(this, f, g)
 
-  def inject[R2, R3](r: R2)(implicit tag: Tag[R2], ev: R2 & R3 => R): IO[R3, E, A] = IO.Provide(this, r, tag, ev)
+  def inject[R2, R3](r: R2)(using tag: Tag[R2], ev: R2 & R3 => R): IO[R3, E, A] = IO.Provide(this, r, tag, ev)
 
   def catchAll[R2, E2, A2](f: E => IO[R2, E2, A2]) = this.foldM(IO.succeed, f)
   
-  def catchSome[R2, E2, A2, E3 <: E, E4 <: E](f: PartialFunction[E, (E3, IO[R2, E2, A2])])(implicit ev: E => E3 | E4): IO[R & R2, E2 | E4, A | A2] = this.foldM(IO.succeed, e => {
+  def catchSome[R2, E2, A2, E3 <: E, E4 <: E](f: PartialFunction[E, (E3, IO[R2, E2, A2])])(using ev: E => E3 | E4): IO[R & R2, E2 | E4, A | A2] = this.foldM(IO.succeed, e => {
     f.lift(e) match {
       case Some((e3, io)) if e3 == e => io.asInstanceOf[IO[R & R2, E2 | E4, A | A2]]
       case _ => IO.fail(e).asInstanceOf[IO[R & R2, E2 | E4, A | A2]]
     }
   })
-
 
   case Succeed[A](
     val a: () => A
@@ -150,5 +149,5 @@ object IO {
 
   def fail[E](e: => E): IO[Any, E, Nothing] = Fail(() => e)
 
-  def use[R, R2, E2, A](f: R => IO[R2, E2, A])(implicit tag: Tag[R]): IO[R & R2, E2, A] = Use(f, tag)
+  def use[R, R2, E2, A](f: R => IO[R2, E2, A])(using tag: Tag[R]): IO[R & R2, E2, A] = Use(f, tag)
 }

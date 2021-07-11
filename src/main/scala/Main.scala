@@ -7,7 +7,7 @@ trait Random {
 }
 
 object Random {
-  implicit val tag: Tag[Random] = Tag()
+  given Tag[Random] = Tag()
 
   def int = IO use ((T: Random) => T.int)
 }
@@ -17,7 +17,7 @@ trait Console {
 }
 
 object Console {
-  implicit val tag: Tag[Console] = Tag()
+  given Tag[Console] = Tag()
 
   def putStrLn(msg: => String) = IO use ((T: Console) => T putStrLn msg)
 }
@@ -27,7 +27,7 @@ trait Math {
 }
 
 object Math {
-  implicit val tag: Tag[Math] = Tag()
+  given Tag[Math] = Tag()
 
   def add(x: Int, y: Int) = IO use ((T: Math) => T add(x, y))
 }
