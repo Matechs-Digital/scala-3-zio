@@ -48,8 +48,11 @@ val program = for {
 } yield ()
 
 val main = program
-  .catchSome(e => e match {
+  .catchSome({
     case x: ErrorA => (x, Console putStrLn "recovered from A")
+  })
+  .catchSome({
+    case x: ErrorB => (x, IO fail ErrorC("c"))
   })
   .inject(new Console {
     def putStrLn(msg: => String) = IO.succeed(println(msg))
