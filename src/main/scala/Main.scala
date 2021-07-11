@@ -9,7 +9,25 @@ trait Random {
 object Random {
   given Tag[Random] = Tag()
 
+  val Live = Layer(new Random {
+    def int = IO.succeed(1)
+  })
+
   def int = IO use ((T: Random) => T.int)
+}
+
+trait Layout {
+  def prefix: IO[Any, Nothing, String]
+}
+
+object Layout {
+  given Tag[Layout] = Tag()
+
+  val Live = Layer(new Layout {
+    def prefix = IO succeed "prefix: "
+  })
+
+  def prefix = IO use ((T: Layout) => T.prefix)
 }
 
 trait Console {
@@ -18,6 +36,12 @@ trait Console {
 
 object Console {
   given Tag[Console] = Tag()
+
+  val Live = Layer(for {
+    prefix <- Layout.prefix
+  } yield new Console {
+    def putStrLn(msg: => String) = IO.succeed(println(s"${prefix}${msg}"))
+  })
 
   def putStrLn(msg: => String) = IO use ((T: Console) => T putStrLn msg)
 }
@@ -28,6 +52,10 @@ trait Math {
 
 object Math {
   given Tag[Math] = Tag()
+
+  val Live = Layer(new Math {
+    def add(x: Int, y: Int) = IO.succeed(x + y)
+  })
 
   def add(x: Int, y: Int) = IO use ((T: Math) => T add(x, y))
 }
@@ -54,15 +82,8 @@ val main = program
   .catchSome({
     case x: ErrorB => (x, IO fail ErrorC("c"))
   })
-  .inject(new Console {
-    def putStrLn(msg: => String) = IO.succeed(println(msg))
-  })
-  .inject(new Math {
-    def add(x: Int, y: Int) = IO.succeed(x + y)
-  })
-  .inject(new Random {
-    def int = IO.succeed(1)
-  })
+  .inject(Console.Live +++ Math.Live +++ Random.Live)
+  .inject(Layout.Live)
 
 @main def root() = {
   main.unsafeRun match {
