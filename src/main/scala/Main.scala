@@ -2,6 +2,16 @@
 // USAGE
 //
 
+trait Random {
+  def int: IO[Any, Nothing, Int]
+}
+
+object Random {
+  implicit val tag: Tag[Random] = Tag()
+
+  def int = IO use ((T: Random) => T.int)
+}
+
 trait Console {
   def putStrLn(msg: => String): IO[Any, Nothing, Unit]
 }
@@ -24,14 +34,17 @@ object Math {
 
 case class ErrorA(a: String)
 case class ErrorB(b: String)
+case class ErrorC(c: String)
 
 val program = for {
   _ <- Console putStrLn "hello"
   _ <- Console putStrLn "world"
   y <- Math add(2, 3)
+  _ <- Random.int
   _ <- Console putStrLn s"result: $y"
   _ <- IO fail ErrorA("a")
   _ <- IO fail ErrorB("b")
+  _ <- IO fail ErrorC("c")
 } yield ()
 
 val main = program
@@ -43,6 +56,9 @@ val main = program
   })
   .inject(new Math {
     def add(x: Int, y: Int) = IO.succeed(x + y)
+  })
+  .inject(new Random {
+    def int = IO.succeed(1)
   })
 
 @main def root() = {
